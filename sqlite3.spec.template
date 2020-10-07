@@ -18,7 +18,7 @@ opt-sqlite3
 %setup -q
 
 %build
-./configure --prefix=/opt/sqlite
+./configure --prefix=/usr/local
 make %{?_smp_mflags}
 
 %install
