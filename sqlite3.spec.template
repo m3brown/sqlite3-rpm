@@ -18,14 +18,14 @@ opt-sqlite3
 %setup -q
 
 %build
-./configure --prefix=/opt/sqlite
+./configure --prefix=/usr/local
 make %{?_smp_mflags}
 
 %install
 rm -rf %{buildroot}
 %make_install
 
-find %{buildroot} -type f | sed 's|^%{buildroot}||' > filelist
+find %{buildroot} -type f -or -type l | sed 's|^%{buildroot}||' > filelist
 #grep '/man/' filelist | sed 's/$/*/g' > filelist2
 #grep -v '/man/' filelist >> filelist2
 #mv filelist2 filelist
